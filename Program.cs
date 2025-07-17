@@ -10,7 +10,7 @@ namespace SimpleHotelRoomManagement_OOP
     {
         static void Main(string[] args)
         {
-            HotelSystem hotelSystem = new HotelSystem();
+            HotelSystem hotelSystem = new HotelSystem(); 
             int choice; // Variable to store user choice for menu options
 
             do
@@ -39,8 +39,9 @@ namespace SimpleHotelRoomManagement_OOP
                     case 5: hotel.SearchReservation(); break;
                     case 6: hotel.HighestPayingGuest(); break;
                     case 7: hotel.CancelReservation(); break;
+
                     case 0: Console.WriteLine("Exiting..."); break;
-                    default: Console.WriteLine("Invalid choice."); break;
+                    default: Console.WriteLine("Invalid choice."); break; // Default case for invalid input
                 }
 
 
@@ -64,9 +65,20 @@ namespace SimpleHotelRoomManagement_OOP
             public override string ToString() 
             {
                 if (!IsReserved)
-                    return $"Room {RoomNumber} | Rate: {DailyRate} | Available";
+                    return $"Room {RoomNumber} | Rate: {DailyRate} | Available"; // Display room details if not reserved
                 else
-                    return $"Room {RoomNumber} | Reserved by {Reservation.GuestName} | Total: {Reservation.TotalCost()}";
+                    return $"Room {RoomNumber} | Reserved by {Reservation.GuestName} | Total: {Reservation.TotalCost()}"; // Display room details if reserved
+            }
+        }
+
+        class Reservation
+        {
+            public string GuestName { get; set; } 
+            public int RoomNumber { get; set; } 
+            public int Nights { get; set; } // Number of nights reserved
+            public DateTime CheckInDate { get; set; } 
+            public DateTime CheckOutDate { get; set; } 
+        
             }
         }
     }
