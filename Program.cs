@@ -251,6 +251,11 @@ namespace SimpleHotelRoomManagement_OOP
             CheckOutDate = checkInDate.AddDays(nights);
             DailyRate = dailyRate;
         }
+
+        public double TotalCost()
+        {
+            return Nights * DailyRate;
+        }
     }
     
 
