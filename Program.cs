@@ -98,9 +98,9 @@ namespace SimpleHotelRoomManagement_OOP
                 return Nights * DailyRate; // Get room rate and calculate total cost
             }
 
-            public string Display(Room room) // Display reservation details in a formatted string
+            public string Display() // Display reservation details in a formatted string
             {
-                return $"Reservation for {GuestName} | Room: {room.RoomNumber} | Nights: {Nights} | Check-in: {CheckInDate.ToShortDateString()} | Check-out: {CheckOutDate.ToShortDateString()} | Total Cost: {TotalCost()}";
+                return $"Reservation for {GuestName} | Room: {RoomNumber} | Nights: {Nights} | Check-in: {CheckInDate.ToShortDateString()} | Check-out: {CheckOutDate.ToShortDateString()} | Total Cost: {TotalCost()}";
             }
 
         }
@@ -188,7 +188,8 @@ namespace SimpleHotelRoomManagement_OOP
                 }
 
                 room.IsReserved = true;
-                room.Reservation = new Reservation(guestName, number, nights, DateTime.Now);
+                room.Reservation = new Reservation(guestName, number, nights, DateTime.Now, room.DailyRate);
+
 
                 reservations.Add(room.Reservation); // Add reservation to the list
                 Console.WriteLine("Room reserved successfully.");
