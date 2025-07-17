@@ -151,6 +151,11 @@ namespace SimpleHotelRoomManagement_OOP
                 Console.Write("Enter guest name: ");
                 string guestName = Console.ReadLine();
 
+                if (string.IsNullOrWhiteSpace(guestName)) // Validate guest name
+                {
+                    Console.WriteLine("Guest name cannot be empty.");
+                    return;
+                }
 
                 Console.Write("Enter room number: ");
                 int roomNumber = int.Parse(Console.ReadLine());
