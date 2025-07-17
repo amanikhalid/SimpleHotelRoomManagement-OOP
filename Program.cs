@@ -46,6 +46,32 @@ namespace SimpleHotelRoomManagement_OOP
             }
         }
 
+        private void AddRoom()
+        {
+            Console.Write("Enter room number: ");
+            if (!int.TryParse(Console.ReadLine(), out int number))
+            {
+                Console.WriteLine("Invalid number.");
+                return;
+            }
+
+            if (rooms.Exists(r => r.RoomNumber == number))
+            {
+                Console.WriteLine("Room already exists.");
+                return;
+            }
+
+            Console.Write("Enter daily rate: ");
+            if (!double.TryParse(Console.ReadLine(), out double rate) || rate < 100)
+            {
+                Console.WriteLine("Invalid rate. Must be >= 100.");
+                return;
+            }
+
+            rooms.Add(new Room(number, rate));
+            Console.WriteLine("Room added successfully.");
+        }
+
 
         class Room
         {
