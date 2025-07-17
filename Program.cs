@@ -222,6 +222,13 @@ namespace SimpleHotelRoomManagement_OOP
                     return;
                 }
 
+                Console.WriteLine("Reservations found:"); // Display found reservations
+                foreach (var reservation in foundReservations)
+                {
+                    var room = GetRoomByNumber(reservation.RoomNumber);
+                    if (room != null)
+                        Console.WriteLine(reservation.Display(room));
+                }
 
             }
 
