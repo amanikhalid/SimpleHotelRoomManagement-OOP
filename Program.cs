@@ -197,12 +197,25 @@ namespace SimpleHotelRoomManagement_OOP
                     Console.WriteLine("No reservations found.");
                     return;
                 }
-                foreach (var reservation in reservations)
+
+                foreach (var reservation in reservations) 
                 {
                     var room = GetRoomByNumber(reservation.RoomNumber);
                     if (room != null)
                         Console.WriteLine(reservation.Display(room));
                 }
+            }
+
+            public void SearchReservation() // Method to search reservation by guest name
+            {
+                Console.Write("Enter guest name to search: ");
+                string guestName = Console.ReadLine();
+                if (string.IsNullOrWhiteSpace(guestName)) // Validate guest name
+                {
+                    Console.WriteLine("Guest name cannot be empty.");
+                    return;
+                }
+                
             }
 
         }
