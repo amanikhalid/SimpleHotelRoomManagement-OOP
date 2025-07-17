@@ -110,6 +110,11 @@ namespace SimpleHotelRoomManagement_OOP
             private List<Reservation> reservations = new List<Reservation>(); // List to store reservations
             private const double MIN_RATE = 100.0;
 
+            public Room GetRoomByNumber(int number)
+            {
+                return rooms.FirstOrDefault(r => r.RoomNumber == number);
+            }
+
             public void AddRoom() // Method to add a new room
             {
                 Console.Write("Enter room number: ");
