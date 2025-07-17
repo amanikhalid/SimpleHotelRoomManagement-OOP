@@ -7,11 +7,44 @@ namespace SimpleHotelRoomManagement_OOP
     {
         static void Main(string[] args)
         {
-            HotelSystem system = new HotelSystem();
+            HotelSystem system = new HotelSystem(); // Create an instance of the HotelSystem class
             system.Run();
         } 
     }
 
+    class HotelSystem
+    {
+        private List<Room> rooms = new List<Room>(); // List to store rooms
+
+        public void Run() // Main method to run the hotel management system
+        {
+            while (true)
+            {
+                Console.WriteLine("\nHotel Room Management System");
+                Console.WriteLine("1. Add Room");
+                Console.WriteLine("2. View All Rooms");
+                Console.WriteLine("3. Reserve Room");
+                Console.WriteLine("4. View Reservations");
+                Console.WriteLine("5. Search Reservation by Guest Name");
+                Console.WriteLine("6. Highest-Paying Guest");
+                Console.WriteLine("7. Cancel Reservation");
+                Console.WriteLine("8. Exit");
+                Console.Write("Select an option: ");
+
+                switch (Console.ReadLine())
+                {
+                    case "1": AddRoom(); break;
+                    case "2": ViewRooms(); break;
+                    case "3": ReserveRoom(); break;
+                    case "4": ViewReservations(); break;
+                    case "5": SearchReservation(); break;
+                    case "6": HighestPayingGuest(); break;
+                    case "7": CancelReservation(); break;
+                    case "8": return;
+                    default: Console.WriteLine("Invalid option."); break;
+                }
+            }
+        }
 
 
         class Room
