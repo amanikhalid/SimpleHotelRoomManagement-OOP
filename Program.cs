@@ -1,8 +1,6 @@
-﻿using System.Collections.Generic;
-using System.Numerics;
-using System.Text;
-using System.Security.Principal;
-using System.Transactions;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace SimpleHotelRoomManagement_OOP
 {
@@ -209,7 +207,7 @@ namespace SimpleHotelRoomManagement_OOP
                 {
                     var room = GetRoomByNumber(reservation.RoomNumber);
                     if (room != null)
-                        Console.WriteLine(reservation.Display(room));
+                        Console.WriteLine(reservation.Display());
                 }
             }
 
@@ -234,7 +232,7 @@ namespace SimpleHotelRoomManagement_OOP
                 {
                     var room = GetRoomByNumber(reservation.RoomNumber);
                     if (room != null)
-                        Console.WriteLine(reservation.Display(room));
+                        Console.WriteLine(reservation.Display());
                 }
 
             }
