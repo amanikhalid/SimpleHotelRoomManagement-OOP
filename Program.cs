@@ -11,7 +11,7 @@ namespace SimpleHotelRoomManagement_OOP
         static void Main(string[] args)
         {
             HotelSystem hotelSystem = new HotelSystem();
-            int choice;
+            int choice; // Variable to store user choice for menu options
 
             do
             {
@@ -30,7 +30,7 @@ namespace SimpleHotelRoomManagement_OOP
 
                 int.TryParse(Console.ReadLine(), out choice);
 
-                switch (choice)
+                switch (choice) // Switch case to handle user choicesl
                 {
                     case 1: hotel.AddRoom(); break;
                     case 2: hotel.ViewAllRooms(); break;
@@ -50,18 +50,18 @@ namespace SimpleHotelRoomManagement_OOP
 
         class Room
         {
-            public int RoomNumber { get; set; }
-            public double DailyRate { get; set; }
-            public bool IsReserved { get; set; } = false;
-            public Reservation Reservation { get; set; } = null;
+            public int RoomNumber { get; set; } // Unique identifier for the room
+            public double DailyRate { get; set; } 
+            public bool IsReserved { get; set; } = false; // Indicates if the room is reserved
+            public Reservation Reservation { get; set; } = null; // Reservation details if the room is reserved
 
-            public Room(int roomNumber, double dailyRate)
+            public Room(int roomNumber, double dailyRate) // Constructor to initialize room properties
             {
                 RoomNumber = roomNumber;
                 DailyRate = dailyRate;
             }
 
-            public override string ToString()
+            public override string ToString() 
             {
                 if (!IsReserved)
                     return $"Room {RoomNumber} | Rate: {DailyRate} | Available";
