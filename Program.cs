@@ -32,13 +32,13 @@ namespace SimpleHotelRoomManagement_OOP
 
                 switch (choice) // Switch case to handle user choicesl
                 {
-                    case 1: hotel.AddRoom(); break;
-                    case 2: hotel.ViewAllRooms(); break;
-                    case 3: hotel.ReserveRoom(); break;
-                    case 4: hotel.ViewAllReservations(); break;
-                    case 5: hotel.SearchReservation(); break;
-                    case 6: hotel.HighestPayingGuest(); break;
-                    case 7: hotel.CancelReservation(); break;
+                    case 1: hotelSystem.AddRoom(); break;
+                    case 2: hotelSystem.ViewAllRooms(); break;
+                    case 3: hotelSystem.ReserveRoom(); break;
+                    case 4: hotelSystem.ViewAllReservations(); break;
+                    case 5: hotelSystem.SearchReservation(); break;
+                    case 6: hotelSystem.HighestPayingGuest(); break;
+                    case 7: hotelSystem.CancelReservation(); break;
 
                     case 0: Console.WriteLine("Exiting..."); break;
                     default: Console.WriteLine("Invalid choice."); break; // Default case for invalid input
@@ -49,7 +49,7 @@ namespace SimpleHotelRoomManagement_OOP
             (choice != 0);
         }
 
-        class
+        
 
         class Room
         {
