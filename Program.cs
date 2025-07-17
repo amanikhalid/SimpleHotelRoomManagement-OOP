@@ -28,7 +28,24 @@ namespace SimpleHotelRoomManagement_OOP
 
                 Console.Write("Please enter your choice: ");
 
-            
+                int.TryParse(Console.ReadLine(), out choice);
+
+                switch (choice)
+                {
+                    case 1: hotel.AddRoom(); break;
+                    case 2: hotel.ViewAllRooms(); break;
+                    case 3: hotel.ReserveRoom(); break;
+                    case 4: hotel.ViewAllReservations(); break;
+                    case 5: hotel.SearchReservation(); break;
+                    case 6: hotel.HighestPayingGuest(); break;
+                    case 7: hotel.CancelReservation(); break;
+                    case 0: Console.WriteLine("Exiting..."); break;
+                    default: Console.WriteLine("Invalid choice."); break;
+                }
+
+
+            } while
+            (choice != 0);
         }
     }
 }
