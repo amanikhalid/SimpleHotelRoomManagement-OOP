@@ -166,7 +166,12 @@ namespace SimpleHotelRoomManagement_OOP
                     Console.WriteLine("Room does not exist.");
                     return;
                 }
-
+                if (room.IsReserved) // Check if room is already reserved
+               
+                {
+                    Console.WriteLine("Room already reserved.");
+                    return;
+                }
 
 
             }
