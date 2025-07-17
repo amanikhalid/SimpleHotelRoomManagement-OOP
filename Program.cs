@@ -110,5 +110,27 @@ namespace SimpleHotelRoomManagement_OOP
             private List<Reservation> reservations = new List<Reservation>(); // List to store reservations
             private const double MIN_RATE = 100.0;
 
+            public void AddRoom() // Method to add a new room
+            {
+                Console.Write("Enter room number: ");
+                int roomNumber = int.Parse(Console.ReadLine());
+                if (rooms.Exists(r => r.RoomNumber == roomNumber)) // Check if room already exists
+                {
+                    Console.WriteLine("Room number already exists.");
+                    return;
+                }
+
+                Console.Write("Enter daily rate: ");
+                double dailyRate = double.Parse(Console.ReadLine());
+
+                if (dailyRate < MIN_RATE) // Validate minimum rate
+                {
+                    Console.WriteLine($"Daily rate must be at least {MIN_RATE}");
+                    return;
+                }
+                rooms.Add(new Room(roomNumber, dailyRate)); // Add new room to the list
+                Console.WriteLine("Room added successfully.");
+            }
+
         }
 }
