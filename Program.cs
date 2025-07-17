@@ -47,5 +47,13 @@ namespace SimpleHotelRoomManagement_OOP
             } while
             (choice != 0);
         }
+
+        class Room
+        {
+            public int RoomNumber { get; set; }
+            public double DailyRate { get; set; }
+            public bool IsReserved { get; set; } = false;
+            public Reservation Reservation { get; set; } = null;
+
+        }
     }
-}
