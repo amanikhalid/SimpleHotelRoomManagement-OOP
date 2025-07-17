@@ -231,9 +231,26 @@ namespace SimpleHotelRoomManagement_OOP
             }
         }
 
-
-
     }
-}
+
+    class Reservation
+    {
+        public string GuestName { get; set; }
+        public int RoomNumber { get; set; }
+        public int Nights { get; set; }
+        public DateTime CheckInDate { get; set; }
+        public DateTime CheckOutDate { get; set; }
+        public double DailyRate { get; set; }
+
+        public Reservation(string guestName, int roomNumber, int nights, DateTime checkInDate, double dailyRate)
+        {
+            GuestName = guestName;
+            RoomNumber = roomNumber;
+            Nights = nights;
+            CheckInDate = checkInDate;
+            CheckOutDate = checkInDate.AddDays(nights);
+            DailyRate = dailyRate;
+        }
+    }
     
 
