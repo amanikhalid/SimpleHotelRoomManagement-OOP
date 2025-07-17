@@ -9,6 +9,7 @@ namespace SimpleHotelRoomManagement_OOP
         static void Main(string[] args)
         {
             HotelSystem hotelSystem = new HotelSystem();
+
             int choice; // Variable to store user choice for menu options
 
             do
@@ -73,7 +74,7 @@ namespace SimpleHotelRoomManagement_OOP
 
 
 
-        class Reservation
+        public class Reservation
         {
             public string GuestName { get; set; }
             public int RoomNumber { get; set; }
@@ -81,8 +82,9 @@ namespace SimpleHotelRoomManagement_OOP
             public DateTime CheckInDate { get; set; }
             public DateTime CheckOutDate { get; set; }
             public double DailyRate { get; set; }
-            public Reservation(string guestName, int roomNumber, int nights, DateTime checkInDate) // Constructor to initialize reservation properties
+            public Reservation(string guestName, int roomNumber, int nights, DateTime checkInDate, double dailyRate)
             {
+            
                 GuestName = guestName;
                 RoomNumber = roomNumber;
                 Nights = nights;
