@@ -95,7 +95,7 @@ namespace SimpleHotelRoomManagement_OOP
 
             public double TotalCost() // Calculate total cost of the reservation
             {
-                return Nights * room.DailyRate; // Get room rate and calculate total cost
+                return Nights * DailyRate; // Get room rate and calculate total cost
             }
 
             public string Display(Room room) // Display reservation details in a formatted string
