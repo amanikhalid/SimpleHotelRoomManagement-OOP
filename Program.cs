@@ -131,6 +131,8 @@ namespace SimpleHotelRoomManagement_OOP
                 rooms.Add(new Room(roomNumber, dailyRate)); // Add new room to the list
                 Console.WriteLine("Room added successfully.");
             }
+
+
             public void ViewAllRooms() // Method to view all rooms
             {
                 Console.WriteLine("All Rooms:");
@@ -143,9 +145,18 @@ namespace SimpleHotelRoomManagement_OOP
                 foreach (var room in rooms)
                     Console.WriteLine(room.ToString());
             }
-            
+
+            public void ReserveRoom() // Method to reserve a room
+            {
+                Console.Write("Enter guest name: ");
+                string guestName = Console.ReadLine();
 
 
+                Console.Write("Enter room number: ");
+                int roomNumber = int.Parse(Console.ReadLine());
+
+               
+            }
 
         }
     } }
