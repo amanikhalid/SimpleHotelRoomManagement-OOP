@@ -86,6 +86,43 @@ namespace SimpleHotelRoomManagement_OOP
             }
         }
 
+        private void ReserveRoom()
+        {
+            Console.Write("Enter guest name: ");
+            string guestName = Console.ReadLine();
+
+            Console.Write("Enter room number to reserve: ");
+            if (!int.TryParse(Console.ReadLine(), out int number))
+            {
+                Console.WriteLine("Invalid room number.");
+                return;
+            }
+
+            Room room = rooms.Find(r => r.RoomNumber == number);
+            if (room == null)
+            {
+                Console.WriteLine("Room not found.");
+                return;
+            }
+
+            if (room.IsReserved)
+            {
+                Console.WriteLine("Room is already reserved.");
+                return;
+            }
+
+            Console.Write("Enter number of nights: ");
+            if (!int.TryParse(Console.ReadLine(), out int nights) || nights <= 0)
+            {
+                Console.WriteLine("Invalid number of nights.");
+                return;
+            }
+
+            room.Reservation = new Reservation(guestName, number, nights, DateTime.Now, room.DailyRate);
+            room.IsReserved = true;
+            Console.WriteLine("Room reserved successfully.");
+        }
+
 
 
     }
