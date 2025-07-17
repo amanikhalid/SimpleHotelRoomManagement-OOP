@@ -134,7 +134,23 @@ namespace SimpleHotelRoomManagement_OOP
             }
         }
 
+        private void SearchReservation()
+        {
+            Console.Write("Enter guest name to search: ");
+            string guestName = Console.ReadLine();
 
+            foreach (Room room in rooms)
+            {
+                if (room.IsReserved && room.Reservation != null &&
+                    room.Reservation.GuestName.Equals(guestName, StringComparison.OrdinalIgnoreCase))
+                {
+                    Console.WriteLine(room.Reservation.Display());
+                    return;
+                }
+            }
+
+            Console.WriteLine("Reservation not found.");
+        }
 
     }
 }
