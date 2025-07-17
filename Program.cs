@@ -160,7 +160,13 @@ namespace SimpleHotelRoomManagement_OOP
                 Console.Write("Enter room number: ");
                 int roomNumber = int.Parse(Console.ReadLine());
 
-               
+                if (!rooms.Exists(r => r.RoomNumber == roomNumber)) // Check if room exists
+                {
+                    Console.WriteLine("Room number does not exist.");
+                    return;
+                }
+
+
             }
 
         }
