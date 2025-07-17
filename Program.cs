@@ -10,7 +10,7 @@ namespace SimpleHotelRoomManagement_OOP
     {
         static void Main(string[] args)
         {
-            HotelSystem hotelSystem = new HotelSystem(); 
+            HotelSystem hotelSystem = new HotelSystem();
             int choice; // Variable to store user choice for menu options
 
             do
@@ -49,12 +49,12 @@ namespace SimpleHotelRoomManagement_OOP
             (choice != 0);
         }
 
-        class 
+        class
 
         class Room
         {
             public int RoomNumber { get; set; } // Unique identifier for the room
-            public double DailyRate { get; set; } 
+            public double DailyRate { get; set; }
             public bool IsReserved { get; set; } = false; // Indicates if the room is reserved
             public Reservation Reservation { get; set; } = null; // Reservation details if the room is reserved
 
@@ -64,7 +64,7 @@ namespace SimpleHotelRoomManagement_OOP
                 DailyRate = dailyRate;
             }
 
-            public override string ToString() 
+            public override string ToString()
             {
                 if (!IsReserved)
                     return $"Room {RoomNumber} | Rate: {DailyRate} | Available"; // Display room details if not reserved
@@ -77,11 +77,11 @@ namespace SimpleHotelRoomManagement_OOP
 
         class Reservation
         {
-            public string GuestName { get; set; } 
-            public int RoomNumber { get; set; } 
+            public string GuestName { get; set; }
+            public int RoomNumber { get; set; }
             public int Nights { get; set; } // Number of nights reserved
-            public DateTime CheckInDate { get; set; } 
-            public DateTime CheckOutDate { get; set; } 
+            public DateTime CheckInDate { get; set; }
+            public DateTime CheckOutDate { get; set; }
 
             public Reservation(string guestName, int roomNumber, int nights, DateTime checkInDate) // Constructor to initialize reservation properties
             {
@@ -125,7 +125,7 @@ namespace SimpleHotelRoomManagement_OOP
 
                 if (dailyRate < MIN_RATE) // Validate minimum rate
                 {
-                    Console.WriteLine($"Daily rate must be at least {MIN_RATE}");
+                    Console.WriteLine($"Daily rate must be at least {MIN_RATE}.");
                     return;
                 }
                 rooms.Add(new Room(roomNumber, dailyRate)); // Add new room to the list
@@ -133,4 +133,4 @@ namespace SimpleHotelRoomManagement_OOP
             }
 
         }
-}
+    } }
