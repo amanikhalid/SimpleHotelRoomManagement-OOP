@@ -82,7 +82,7 @@ namespace SimpleHotelRoomManagement_OOP
             public int Nights { get; set; } // Number of nights reserved
             public DateTime CheckInDate { get; set; }
             public DateTime CheckOutDate { get; set; }
-
+            public double DailyRate { get; set; }
             public Reservation(string guestName, int roomNumber, int nights, DateTime checkInDate) // Constructor to initialize reservation properties
             {
                 GuestName = guestName;
