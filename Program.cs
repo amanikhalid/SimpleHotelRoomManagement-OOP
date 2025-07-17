@@ -187,7 +187,22 @@ namespace SimpleHotelRoomManagement_OOP
                 reservations.Add(room.Reservation); // Add reservation to the list
                 Console.WriteLine("Room reserved successfully.");
 
+            }
 
+            public void ViewAllReservations() // Method to view all reservations
+            {
+                Console.WriteLine("All Reservations:");
+                if (!reservations.Any())
+                {
+                    Console.WriteLine("No reservations found.");
+                    return;
+                }
+                foreach (var reservation in reservations)
+                {
+                    var room = GetRoomByNumber(reservation.RoomNumber);
+                    if (room != null)
+                        Console.WriteLine(reservation.Display(room));
+                }
             }
 
         }
