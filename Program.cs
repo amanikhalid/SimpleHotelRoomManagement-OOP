@@ -198,18 +198,18 @@ namespace SimpleHotelRoomManagement_OOP
 
             public void ViewAllReservations() // Method to view all reservations
             {
-                Console.WriteLine("All Reservations:");
-                if (!reservations.Any())
+                var reservedRooms = rooms.Where(r => r.IsReserved).ToList();
+
+                if (reservedRooms.Count == 0)
                 {
                     Console.WriteLine("No reservations found.");
                     return;
                 }
 
-                foreach (var reservation in reservations)
+                Console.WriteLine("\n All Reservations ");
+                foreach (Room room in reservedRooms)
                 {
-                    var room = GetRoomByNumber(reservation.RoomNumber);
-                    if (room != null)
-                        Console.WriteLine(reservation.Display());
+                    Console.WriteLine(room.Reservation.Display());
                 }
             }
 
