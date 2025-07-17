@@ -262,7 +262,17 @@ namespace SimpleHotelRoomManagement_OOP
                     Console.WriteLine("No reservation found for this guest.");
                     return;
                 }
-               
 
-        }
+                var room = GetRoomByNumber(reservation.RoomNumber); 
+                if (room != null)
+                {
+                    room.IsReserved = false; // Mark room as available
+                    room.Reservation = null; // Clear reservation details
+
+                    reservations.Remove(reservation); // Remove reservation from the list
+                    Console.WriteLine("Reservation cancelled successfully.");
+                }
+
+
+            }
     } }
