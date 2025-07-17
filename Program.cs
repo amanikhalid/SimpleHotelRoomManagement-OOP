@@ -60,5 +60,14 @@ namespace SimpleHotelRoomManagement_OOP
                 RoomNumber = roomNumber;
                 DailyRate = dailyRate;
             }
+
+            public override string ToString()
+            {
+                if (!IsReserved)
+                    return $"Room {RoomNumber} | Rate: {DailyRate} | Available";
+                else
+                    return $"Room {RoomNumber} | Reserved by {Reservation.GuestName} | Total: {Reservation.TotalCost()}";
+            }
         }
     }
+}
