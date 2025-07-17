@@ -90,6 +90,7 @@ namespace SimpleHotelRoomManagement_OOP
                 Nights = nights;
                 CheckInDate = checkInDate;
                 CheckOutDate = checkInDate.AddDays(nights); // Calculate check-out date based on nights reserved
+                DailyRate = dailyRate;
             }
 
             public double TotalCost() // Calculate total cost of the reservation
