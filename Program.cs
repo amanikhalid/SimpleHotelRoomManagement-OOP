@@ -182,8 +182,10 @@ namespace SimpleHotelRoomManagement_OOP
                 }
 
                 room.IsReserved = true;
-                room.Reservation = new Reservation(guestName, number, nights, DateTime.Now); 
-                
+                room.Reservation = new Reservation(guestName, number, nights, DateTime.Now);
+             
+                reservations.Add(room.Reservation); // Add reservation to the list
+                Console.WriteLine("Room reserved successfully.");
 
 
             }
