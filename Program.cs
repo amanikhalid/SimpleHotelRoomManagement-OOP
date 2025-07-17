@@ -202,8 +202,26 @@ namespace SimpleHotelRoomManagement_OOP
             }
         }
 
+    }
+
+    class Room
+    {
+        public int RoomNumber { get; set; }
+        public double DailyRate { get; set; }
+        public bool IsReserved { get; set; }
+        public Reservation Reservation { get; set; }
+
+        public Room(int roomNumber, double dailyRate)
+        {
+            RoomNumber = roomNumber;
+            DailyRate = dailyRate;
+            IsReserved = false;
+            Reservation = null;
+        }
+
+
+
 
     }
-}
     
 
