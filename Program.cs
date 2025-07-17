@@ -173,6 +173,14 @@ namespace SimpleHotelRoomManagement_OOP
                     return;
                 }
 
+                Console.Write("Enter number of nights: ");
+                int nights;
+                if (!int.TryParse(Console.ReadLine(), out nights) || nights <= 0) // Validate number of nights
+                {
+                    Console.WriteLine("Invalid number of nights.");
+                    return;
+                }
+
 
             }
 
