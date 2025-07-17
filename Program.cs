@@ -9,7 +9,7 @@ namespace SimpleHotelRoomManagement_OOP
         {
             HotelSystem system = new HotelSystem(); // Create an instance of the HotelSystem class
             system.Run();
-        } 
+        }
     }
 
     class HotelSystem
@@ -219,9 +219,21 @@ namespace SimpleHotelRoomManagement_OOP
             Reservation = null;
         }
 
+        public string GetDetails()
+        {
+            if (IsReserved && Reservation != null)
+            {
+                return $"Room {RoomNumber} (Reserved) - Guest: {Reservation.GuestName}, Total: {Reservation.TotalCost()}";
+            }
+            else
+            {
+                return $"Room {RoomNumber} (Available) - Rate: {DailyRate}";
+            }
+        }
 
 
 
     }
+}
     
 
