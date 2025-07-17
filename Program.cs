@@ -241,8 +241,22 @@ namespace SimpleHotelRoomManagement_OOP
                 }
                 var highestPaying = reservations.OrderByDescending(r => r.TotalCost()).First(); // Get the reservation with the highest total cost
                 var room = GetRoomByNumber(highestPaying.RoomNumber);
+
                 if (room != null)
                     Console.WriteLine($"Highest Paying Guest: {highestPaying.GuestName} | Room: {room.RoomNumber} | Total Cost: {highestPaying.TotalCost()}");
+            }
+
+            public void CancelReservation() // Method to cancel a reservation
+            {
+                Console.Write("Enter guest name to cancel reservation: ");
+                string guestName = Console.ReadLine();
+                if (string.IsNullOrWhiteSpace(guestName)) // Validate guest name
+                {
+                    Console.WriteLine("Guest name cannot be empty.");
+                    return;
+                }
+                
+                }
             }
 
         }
