@@ -255,9 +255,14 @@ namespace SimpleHotelRoomManagement_OOP
                     Console.WriteLine("Guest name cannot be empty.");
                     return;
                 }
-                
+
+                var reservation = reservations.FirstOrDefault(r => r.GuestName.Equals(guestName, StringComparison.OrdinalIgnoreCase));
+                if (reservation == null) // Check if reservation exists
+                {
+                    Console.WriteLine("No reservation found for this guest.");
+                    return;
                 }
-            }
+               
 
         }
     } }
