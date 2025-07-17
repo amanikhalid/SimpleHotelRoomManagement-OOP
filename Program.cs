@@ -215,7 +215,14 @@ namespace SimpleHotelRoomManagement_OOP
                     Console.WriteLine("Guest name cannot be empty.");
                     return;
                 }
-                
+                var foundReservations = reservations.Where(r => r.GuestName.Equals(guestName, StringComparison.OrdinalIgnoreCase)).ToList();
+                if (!foundReservations.Any()) // Check if any reservations found
+                {
+                    Console.WriteLine("No reservations found for this guest.");
+                    return;
+                }
+
+
             }
 
         }
