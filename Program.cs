@@ -55,5 +55,10 @@ namespace SimpleHotelRoomManagement_OOP
             public bool IsReserved { get; set; } = false;
             public Reservation Reservation { get; set; } = null;
 
+            public Room(int roomNumber, double dailyRate)
+            {
+                RoomNumber = roomNumber;
+                DailyRate = dailyRate;
+            }
         }
     }
