@@ -93,6 +93,12 @@ namespace SimpleHotelRoomManagement_OOP
                 return Nights * HotelSystem.GetRoomByNumber(RoomNumber).DailyRate; // Get room rate and calculate total cost
             }
 
+            public string Display(Room room) // Display reservation details in a formatted string
+            {
+                return $"Reservation for {GuestName} | Room: {room.RoomNumber} | Nights: {Nights} | Check-in: {CheckInDate.ToShortDateString()} | Check-out: {CheckOutDate.ToShortDateString()} | Total Cost: {TotalCost()}";
+            }
+
+
 
 
         }
