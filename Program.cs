@@ -181,6 +181,9 @@ namespace SimpleHotelRoomManagement_OOP
                     return;
                 }
 
+                room.IsReserved = true; 
+                
+
 
             }
 
