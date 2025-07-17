@@ -72,6 +72,20 @@ namespace SimpleHotelRoomManagement_OOP
             Console.WriteLine("Room added successfully.");
         }
 
+        private void ViewRooms()
+        {
+            if (rooms.Count == 0)
+            {
+                Console.WriteLine("No rooms found.");
+                return;
+            }
+
+            foreach (Room room in rooms)
+            {
+                Console.WriteLine(room.GetDetails());
+            }
+        }
+
 
 
     }
