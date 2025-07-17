@@ -180,6 +180,27 @@ namespace SimpleHotelRoomManagement_OOP
                 Console.WriteLine("No reservations found.");
             }
         }
+        private void CancelReservation()
+        {
+            Console.Write("Enter room number to cancel reservation: ");
+            if (!int.TryParse(Console.ReadLine(), out int number))
+            {
+                Console.WriteLine("Invalid number.");
+                return;
+            }
+
+            Room room = rooms.Find(r => r.RoomNumber == number);
+            if (room != null && room.IsReserved)
+            {
+                room.IsReserved = false;
+                room.Reservation = null;
+                Console.WriteLine("Reservation cancelled.");
+            }
+            else
+            {
+                Console.WriteLine("No reservation found for that room.");
+            }
+        }
 
 
     }
