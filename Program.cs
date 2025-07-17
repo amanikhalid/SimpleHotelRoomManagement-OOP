@@ -123,6 +123,17 @@ namespace SimpleHotelRoomManagement_OOP
             Console.WriteLine("Room reserved successfully.");
         }
 
+        private void ViewReservations()
+        {
+            foreach (Room room in rooms)
+            {
+                if (room.IsReserved && room.Reservation != null)
+                {
+                    Console.WriteLine(room.Reservation.Display());
+                }
+            }
+        }
+
 
 
     }
