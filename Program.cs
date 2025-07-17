@@ -49,7 +49,7 @@ namespace SimpleHotelRoomManagement_OOP
             (choice != 0);
         }
 
-        
+
 
         class Room
         {
@@ -94,7 +94,7 @@ namespace SimpleHotelRoomManagement_OOP
 
             public double TotalCost() // Calculate total cost of the reservation
             {
-                return Nights * HotelSystem.GetRoomByNumber(RoomNumber).DailyRate; // Get room rate and calculate total cost
+                return Nights * room.DailyRate; // Get room rate and calculate total cost
             }
 
             public string Display(Room room) // Display reservation details in a formatted string
@@ -172,7 +172,7 @@ namespace SimpleHotelRoomManagement_OOP
                     return;
                 }
                 if (room.IsReserved) // Check if room is already reserved
-               
+
                 {
                     Console.WriteLine("Room already reserved.");
                     return;
@@ -188,7 +188,7 @@ namespace SimpleHotelRoomManagement_OOP
 
                 room.IsReserved = true;
                 room.Reservation = new Reservation(guestName, number, nights, DateTime.Now);
-             
+
                 reservations.Add(room.Reservation); // Add reservation to the list
                 Console.WriteLine("Room reserved successfully.");
 
@@ -203,7 +203,7 @@ namespace SimpleHotelRoomManagement_OOP
                     return;
                 }
 
-                foreach (var reservation in reservations) 
+                foreach (var reservation in reservations)
                 {
                     var room = GetRoomByNumber(reservation.RoomNumber);
                     if (room != null)
@@ -268,7 +268,7 @@ namespace SimpleHotelRoomManagement_OOP
                     return;
                 }
 
-                var room = GetRoomByNumber(reservation.RoomNumber); 
+                var room = GetRoomByNumber(reservation.RoomNumber);
                 if (room != null)
                 {
                     room.IsReserved = false; // Mark room as available
@@ -280,4 +280,6 @@ namespace SimpleHotelRoomManagement_OOP
 
 
             }
-    } }
+        }
+    }
+}
