@@ -256,6 +256,12 @@ namespace SimpleHotelRoomManagement_OOP
         {
             return Nights * DailyRate;
         }
+
+        public string Display()
+        {
+            return $"Reservation for {GuestName} | Room: {RoomNumber} | Nights: {Nights} | Check-in: {CheckInDate.ToShortDateString()} | Check-out: {CheckOutDate.ToShortDateString()} | Total Cost: {TotalCost()}";
+        }
     }
+}
     
 
