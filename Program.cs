@@ -232,5 +232,18 @@ namespace SimpleHotelRoomManagement_OOP
 
             }
 
+            public void HighestPayingGuest() // Method to find the highest paying guest
+            {
+                if (!reservations.Any()) // Check if there are any reservations
+                {
+                    Console.WriteLine("No reservations found.");
+                    return;
+                }
+                var highestPaying = reservations.OrderByDescending(r => r.TotalCost()).First(); // Get the reservation with the highest total cost
+                var room = GetRoomByNumber(highestPaying.RoomNumber);
+                if (room != null)
+                    Console.WriteLine($"Highest Paying Guest: {highestPaying.GuestName} | Room: {room.RoomNumber} | Total Cost: {highestPaying.TotalCost()}");
+            }
+
         }
     } }
