@@ -152,6 +152,36 @@ namespace SimpleHotelRoomManagement_OOP
             Console.WriteLine("Reservation not found.");
         }
 
+        private void HighestPayingGuest()
+        {
+            double maxPayment = 0;
+            Reservation highest = null;
+
+            foreach (Room room in rooms)
+            {
+                if (room.IsReserved && room.Reservation != null)
+                {
+                    double cost = room.Reservation.TotalCost();
+                    if (cost > maxPayment)
+                    {
+                        maxPayment = cost;
+                        highest = room.Reservation;
+                    }
+                }
+            }
+
+            if (highest != null)
+            {
+                Console.WriteLine("Highest paying guest:");
+                Console.WriteLine(highest.Display());
+            }
+            else
+            {
+                Console.WriteLine("No reservations found.");
+            }
+        }
+
+
     }
 }
     
