@@ -181,7 +181,8 @@ namespace SimpleHotelRoomManagement_OOP
                     return;
                 }
 
-                room.IsReserved = true; 
+                room.IsReserved = true;
+                room.Reservation = new Reservation(guestName, number, nights, DateTime.Now); 
                 
 
 
