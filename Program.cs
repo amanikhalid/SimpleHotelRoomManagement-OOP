@@ -157,14 +157,16 @@ namespace SimpleHotelRoomManagement_OOP
                     return;
                 }
 
-                Console.Write("Enter room number: ");
-                int roomNumber = int.Parse(Console.ReadLine());
+                Console.Write("Enter Room Number to Reserve: ");
+                int number = int.Parse(Console.ReadLine());
 
-                if (!rooms.Exists(r => r.RoomNumber == roomNumber)) // Check if room exists
+                var room = rooms.FirstOrDefault(r => r.RoomNumber == number);
+                if (room == null) // Check if room exists
                 {
-                    Console.WriteLine("Room number does not exist.");
+                    Console.WriteLine("Room does not exist.");
                     return;
                 }
+
 
 
             }
