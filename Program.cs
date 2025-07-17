@@ -134,13 +134,16 @@ namespace SimpleHotelRoomManagement_OOP
             public void ViewAllRooms() // Method to view all rooms
             {
                 Console.WriteLine("All Rooms:");
-                foreach (var room in rooms)
+                if (!rooms.Any())
                 {
-                    Console.WriteLine(room); // Display each room's details
+                    Console.WriteLine("No rooms available.");
+                    return;
                 }
-                Console.WriteLine("Press any key to continue...");
-                Console.ReadKey();
+
+                foreach (var room in rooms)
+                    Console.WriteLine(room.ToString());
             }
+            
 
 
 
