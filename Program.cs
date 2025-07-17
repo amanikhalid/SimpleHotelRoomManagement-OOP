@@ -49,6 +49,8 @@ namespace SimpleHotelRoomManagement_OOP
             (choice != 0);
         }
 
+        class 
+
         class Room
         {
             public int RoomNumber { get; set; } // Unique identifier for the room
@@ -70,6 +72,8 @@ namespace SimpleHotelRoomManagement_OOP
                     return $"Room {RoomNumber} | Reserved by {Reservation.GuestName} | Total: {Reservation.TotalCost()}"; // Display room details if reserved
             }
         }
+
+
 
         class Reservation
         {
@@ -98,9 +102,13 @@ namespace SimpleHotelRoomManagement_OOP
                 return $"Reservation for {GuestName} | Room: {room.RoomNumber} | Nights: {Nights} | Check-in: {CheckInDate.ToShortDateString()} | Check-out: {CheckOutDate.ToShortDateString()} | Total Cost: {TotalCost()}";
             }
 
+        }
 
-
+        class HotelSystem
+        {
+            private List<Room> rooms = new List<Room>(); // List to store rooms
+            private List<Reservation> reservations = new List<Reservation>(); // List to store reservations
+            private const double MIN_RATE = 100.0;
 
         }
-    }
 }
