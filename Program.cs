@@ -146,6 +146,8 @@ namespace SimpleHotelRoomManagement_OOP
             if (rooms.Count == 0)
             {
                 Console.WriteLine("No rooms found."); // If no rooms exist, notify the user
+                Console.ReadLine();
+
                 return;
             }
 
