@@ -7,9 +7,11 @@ namespace SimpleHotelRoomManagement_OOP
     {
         static void Main(string[] args)
         {
-
+            
             HotelSystem system = new HotelSystem(); // Create an instance of the HotelSystem class
             system.Run();
+
+            system.LoadData(); // Load previous data
         }
     }
 
