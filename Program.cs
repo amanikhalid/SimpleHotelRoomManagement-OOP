@@ -130,7 +130,11 @@ namespace SimpleHotelRoomManagement_OOP
 
             rooms.Add(new Room(number, rate)); // Add the new room to the list
             Console.WriteLine("Room added successfully.");
+
+            Console.WriteLine("\nPress any key to return to menu...");
+            Console.ReadKey();
         }
+
 
         private void ViewRooms() // Method to view all rooms
         {
