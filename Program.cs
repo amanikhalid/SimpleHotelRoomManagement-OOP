@@ -14,6 +14,8 @@ namespace SimpleHotelRoomManagement_OOP
 
     class HotelSystem
     {
+        private const string FILE_PATH = "hotel_data.txt"; 
+
         private List<Room> rooms = new List<Room>(); // List to store rooms
 
         public void Run() // Main method to run the hotel management system
@@ -163,6 +165,7 @@ namespace SimpleHotelRoomManagement_OOP
 
             Console.WriteLine("Reservation not found.");
         }
+
 
         private void HighestPayingGuest() // Method to find the highest paying guest
         {
