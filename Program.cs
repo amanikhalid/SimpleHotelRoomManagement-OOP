@@ -49,7 +49,7 @@ namespace SimpleHotelRoomManagement_OOP
             }
         }
 
-        public void SaveData()
+        public void SaveData() // Method to save room data to a file
         {
             using (StreamWriter writer = new StreamWriter(FILE_PATH))
             {
@@ -66,6 +66,37 @@ namespace SimpleHotelRoomManagement_OOP
 
             Console.WriteLine("Data saved successfully.");
         }
+
+        public void LoadData() // Method to load room data from a file
+        {
+            if (!File.Exists(FILE_PATH))
+                return;
+
+            string[] lines = File.ReadAllLines(FILE_PATH); 
+            foreach (string line in lines)
+            {
+                string[] parts = line.Split(',');
+
+                int roomNumber = int.Parse(parts[0]);
+                double dailyRate = double.Parse(parts[1]);
+                bool isReserved = bool.Parse(parts[2]);
+
+                Room room = new Room(roomNumber, dailyRate);
+
+                if (isReserved && parts.Length == 6) // Check if the room is reserved and has reservation details
+                {
+                    string guestName = parts[3];
+                    int nights = int.Parse(parts[4]);
+                    DateTime checkIn = DateTime.Parse(parts[5]);
+
+                    room.IsReserved = true;
+                    room.Reservation = new Reservation(guestName, roomNumber, nights, checkIn, dailyRate);
+                }
+
+                rooms.Add(room);
+            }
+        }
+
 
         private void AddRoom() // Method to add a new room
         {
