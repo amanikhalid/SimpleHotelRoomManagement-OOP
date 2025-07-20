@@ -9,16 +9,17 @@ namespace SimpleHotelRoomManagement_OOP
         {
             
             HotelSystem system = new HotelSystem(); // Create an instance of the HotelSystem class
+            system.LoadData(); // Load data before running the system
             system.Run();
 
-            system.LoadData(); // Load previous data
+            
 
         }
     }
 
     class HotelSystem
     {
-        private const string FILE_PATH = "hotel_data.txt"; 
+        private const string FILE_PATH = "C:\\Users\\CodeLine\\source\\repos\\SimpleHotelRoomManagement-OOP\\hotel_data.txt"; 
 
         private List<Room> rooms = new List<Room>(); // List to store rooms
 
