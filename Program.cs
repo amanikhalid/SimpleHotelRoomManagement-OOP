@@ -98,6 +98,11 @@ namespace SimpleHotelRoomManagement_OOP
                 return;
             }
 
+            if (guestName.Length < 3 || guestName.Length > 50) // Validate length of guest name
+            {
+                Console.WriteLine("Guest name must be between 3 and 50 characters.");
+                return;
+            }
             Console.Write("Enter room number to reserve: "); // Prompt for room number
             if (!int.TryParse(Console.ReadLine(), out int number))
             {
