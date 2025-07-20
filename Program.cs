@@ -297,6 +297,7 @@ namespace SimpleHotelRoomManagement_OOP
             if (string.IsNullOrWhiteSpace(guestName))
             {
                 Console.WriteLine("Invalid guest name.");
+                
                 return;
             }
 
@@ -315,6 +316,7 @@ namespace SimpleHotelRoomManagement_OOP
             if (!found)
             {
                 Console.WriteLine("Reservation not found.");
+                Console.ReadLine();
             }
 
             Console.WriteLine("\nPress any key to return to menu...");
