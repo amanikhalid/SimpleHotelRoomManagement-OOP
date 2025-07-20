@@ -144,6 +144,9 @@ namespace SimpleHotelRoomManagement_OOP
             {
                 Console.WriteLine(room.GetDetails()); // Display details of each room
             }
+
+            Console.WriteLine("\nPress any key to return to menu...");
+            Console.ReadKey();
         }
 
         private void ReserveRoom() // Method to reserve a room
