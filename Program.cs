@@ -199,6 +199,11 @@ namespace SimpleHotelRoomManagement_OOP
                 Console.WriteLine("Check-out date must be at least " + nights + " nights after check-in date.");
                 return;
             }
+            if ((checkOut - checkIn).Days > 30) // Check if the reservation exceeds 30 days
+            {
+                Console.WriteLine("Reservation cannot exceed 30 days.");
+                return;
+            }
 
             int night = (checkOut - checkIn).Days; 
 
