@@ -182,6 +182,11 @@ namespace SimpleHotelRoomManagement_OOP
                 Console.WriteLine("Invalid check-in date.");
                 return;
             }
+            if (checkIn < DateTime.Now.Date) // Check if check-in date is in the past
+            {
+                Console.WriteLine("Check-in date cannot be in the past.");
+                return;
+            }
 
             Console.Write("Enter check-out date (yyyy-MM-dd): "); // Prompt for check-out date
             if (!DateTime.TryParse(Console.ReadLine(), out DateTime checkOut) || checkOut <= checkIn)
