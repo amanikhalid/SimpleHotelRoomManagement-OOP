@@ -12,6 +12,7 @@ namespace SimpleHotelRoomManagement_OOP
             system.Run();
 
             system.LoadData(); // Load previous data
+
         }
     }
 
@@ -45,29 +46,17 @@ namespace SimpleHotelRoomManagement_OOP
                     case "5": SearchReservation(); break;
                     case "6": HighestPayingGuest(); break;
                     case "7": CancelReservation(); break;
-                    case "8": return;
-                    default: Console.WriteLine("Invalid option."); break;
+                    case "8":
+                        SaveData(); // Save data before exit
+                        Console.WriteLine("Goodbye!");
+                        return;
+
+                 
                 }
             }
         }
 
-        public void SaveData() // Method to save room data to a file
-        {
-            using (StreamWriter writer = new StreamWriter(FILE_PATH))
-            {
-                foreach (Room room in rooms)
-                {
-                    string line = $"{room.RoomNumber},{room.DailyRate},{room.IsReserved}";
-                    if (room.IsReserved && room.Reservation != null)
-                    {
-                        line += $",{room.Reservation.GuestName},{room.Reservation.Nights},{room.Reservation.CheckInDate}";
-                    }
-                    writer.WriteLine(line);
-                }
-            }
-
-            Console.WriteLine("Data saved successfully.");
-        }
+        
 
         public void LoadData() // Method to load room data from a file
         {
@@ -273,6 +262,24 @@ namespace SimpleHotelRoomManagement_OOP
             room.IsReserved = false;
             room.Reservation = null;
             Console.WriteLine("Reservation cancelled.");
+        }
+
+        public void SaveData() // Method to save room data to a file
+        {
+            using (StreamWriter writer = new StreamWriter(FILE_PATH))
+            {
+                foreach (Room room in rooms)
+                {
+                    string line = $"{room.RoomNumber},{room.DailyRate},{room.IsReserved}";
+                    if (room.IsReserved && room.Reservation != null)
+                    {
+                        line += $",{room.Reservation.GuestName},{room.Reservation.Nights},{room.Reservation.CheckInDate}";
+                    }
+                    writer.WriteLine(line);
+                }
+            }
+
+            Console.WriteLine("Data saved successfully.");
         }
 
     }
