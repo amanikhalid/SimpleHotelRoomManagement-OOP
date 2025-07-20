@@ -270,12 +270,16 @@ namespace SimpleHotelRoomManagement_OOP
                     Console.WriteLine(room.Reservation.Display()); // Display reservation details if found
                     return;
                 }
+
+                Console.WriteLine("\nPress any key to return to menu...");
+                Console.ReadKey();
             }
 
             Console.WriteLine("Reservation not found.");
 
             Console.WriteLine("\nPress any key to return to menu...");
             Console.ReadKey();
+
         }
 
 
