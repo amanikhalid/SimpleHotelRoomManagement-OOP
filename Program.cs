@@ -306,6 +306,9 @@ namespace SimpleHotelRoomManagement_OOP
             {
                 Console.WriteLine("No reservations found."); // If no reservations exist, notify the user
             }
+
+            Console.WriteLine("\nPress any key to return to menu...");
+            Console.ReadKey();
         }
         private void CancelReservation() // Method to cancel a reservation
         {
