@@ -125,8 +125,11 @@ namespace SimpleHotelRoomManagement_OOP
             if (!double.TryParse(Console.ReadLine(), out double rate) || rate < 100)
             {
                 Console.WriteLine("Invalid rate. Must be >= 100.");
+                Console.ReadLine();
                 return;
+                
             }
+
 
             rooms.Add(new Room(number, rate)); // Add the new room to the list
             Console.WriteLine("Room added successfully.");
@@ -256,6 +259,11 @@ namespace SimpleHotelRoomManagement_OOP
             {
                 Console.WriteLine("No reservations found.");
             }
+            else
+            {
+                Console.WriteLine("All reservations displayed above.");
+            }
+
 
             Console.WriteLine("\nPress any key to return to menu...");
             Console.ReadKey();
