@@ -59,38 +59,51 @@ namespace SimpleHotelRoomManagement_OOP
             }
         }
 
-        
+
 
         public void LoadData() // Method to load room data from a file
         {
             if (!File.Exists(FILE_PATH))
-                return;
-
-            string[] lines = File.ReadAllLines(FILE_PATH); 
-            foreach (string line in lines)
             {
-                string[] parts = line.Split(',');
+                Console.WriteLine("No saved data found.");
+                return;
+            }
 
-                int roomNumber = int.Parse(parts[0]);
-                double dailyRate = double.Parse(parts[1]);
-                bool isReserved = bool.Parse(parts[2]);
-
-                Room room = new Room(roomNumber, dailyRate);
-
-                if (isReserved && parts.Length >= 7)
+            try
+            {
+                string[] lines = File.ReadAllLines(FILE_PATH);
+                foreach (string line in lines)
                 {
-                    string guestName = parts[3];
-                    int nights = int.Parse(parts[4]);
-                    DateTime checkIn = DateTime.Parse(parts[5]);
-                    DateTime checkOut = DateTime.Parse(parts[6]);
+                    string[] parts = line.Split(',');
 
-                    room.IsReserved = true;
-                    room.Reservation = new Reservation(guestName, roomNumber, nights, checkIn, dailyRate);
+                    int roomNumber = int.Parse(parts[0]);
+                    double dailyRate = double.Parse(parts[1]);
+                    bool isReserved = bool.Parse(parts[2]);
+
+                    Room room = new Room(roomNumber, dailyRate);
+
+                    if (isReserved && parts.Length >= 7)
+                    {
+                        string guestName = parts[3];
+                        int nights = int.Parse(parts[4]);
+                        DateTime checkIn = DateTime.Parse(parts[5]);
+                        DateTime checkOut = DateTime.Parse(parts[6]);
+
+                        room.IsReserved = true;
+                        room.Reservation = new Reservation(guestName, roomNumber, nights, checkIn, dailyRate);
+                    }
+
+                    rooms.Add(room);
                 }
 
-                rooms.Add(room);
+                Console.WriteLine("Data loaded successfully.");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error loading data: " + ex.Message);
             }
         }
+
 
 
         private void AddRoom() // Method to add a new room
