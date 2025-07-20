@@ -194,6 +194,11 @@ namespace SimpleHotelRoomManagement_OOP
                 Console.WriteLine("Invalid check-out date.");
                 return;
             }
+            if ((checkOut - checkIn).Days < nights) // Check if the number of nights matches the check-in and check-out dates
+            {
+                Console.WriteLine("Check-out date must be at least " + nights + " nights after check-in date.");
+                return;
+            }
 
             int night = (checkOut - checkIn).Days; 
 
