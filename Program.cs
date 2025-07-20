@@ -239,7 +239,8 @@ namespace SimpleHotelRoomManagement_OOP
             room.IsReserved = true;
             Console.WriteLine("Room reserved successfully.");
 
-
+            Console.WriteLine("\nPress any key to return to menu...");
+            Console.ReadKey();
         }
 
         private void ViewReservations() // Method to view all reservations
