@@ -336,7 +336,11 @@ namespace SimpleHotelRoomManagement_OOP
             room.IsReserved = false;
             room.Reservation = null;
             Console.WriteLine("Reservation cancelled.");
+
+            Console.WriteLine("\nPress any key to return to menu...");
+            Console.ReadKey();
         }
+
 
         public void SaveData() // Method to save room data to a file
         {
