@@ -27,6 +27,8 @@ namespace SimpleHotelRoomManagement_OOP
         {
             while (true)
             {
+                Console.Clear(); // Clear the console screen
+
                 Console.WriteLine("\nHotel Room Management System");
                 Console.WriteLine("1. Add Room");
                 Console.WriteLine("2. View All Rooms");
