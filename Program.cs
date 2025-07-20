@@ -179,6 +179,7 @@ namespace SimpleHotelRoomManagement_OOP
             if (!int.TryParse(Console.ReadLine(), out int number))
             {
                 Console.WriteLine("Invalid room number.");
+                Console.ReadLine();
                 return;
             }
 
@@ -186,12 +187,14 @@ namespace SimpleHotelRoomManagement_OOP
             if (room == null)
             {
                 Console.WriteLine("Room not found."); // If room does not exist, notify the user
+                Console.ReadLine();
                 return;
             }
 
             if (room.IsReserved)
             {
                 Console.WriteLine("Room is already reserved."); // If room is already reserved, notify the user
+                Console.ReadLine();
                 return;
             }
 
@@ -199,6 +202,7 @@ namespace SimpleHotelRoomManagement_OOP
             if (!int.TryParse(Console.ReadLine(), out int nights) || nights <= 0)
             {
                 Console.WriteLine("Invalid number of nights.");
+                Console.ReadLine();
                 return;
             }
 
@@ -206,16 +210,19 @@ namespace SimpleHotelRoomManagement_OOP
             if (!DateTime.TryParse(Console.ReadLine(), out DateTime checkIn))
             {
                 Console.WriteLine("Invalid check-in date.");
+                Console.ReadLine();
                 return;
             }
             if (checkIn < DateTime.Now.Date) // Check if check-in date is in the past
             {
                 Console.WriteLine("Check-in date cannot be in the past.");
+                Console.ReadLine();
                 return;
             }
             if (nights < 1 || nights > 30) // Check if the number of nights is valid
             {
                 Console.WriteLine("Number of nights must be between 1 and 30.");
+                Console.ReadLine();
                 return;
             }
             
@@ -224,16 +231,19 @@ namespace SimpleHotelRoomManagement_OOP
             if (!DateTime.TryParse(Console.ReadLine(), out DateTime checkOut) || checkOut <= checkIn)
             {
                 Console.WriteLine("Invalid check-out date.");
+                Console.ReadLine();
                 return;
             }
             if ((checkOut - checkIn).Days < nights) // Check if the number of nights matches the check-in and check-out dates
             {
                 Console.WriteLine("Check-out date must be at least " + nights + " nights after check-in date.");
+                Console.ReadLine();
                 return;
             }
             if ((checkOut - checkIn).Days > 30) // Check if the reservation exceeds 30 days
             {
                 Console.WriteLine("Reservation cannot exceed 30 days.");
+                Console.ReadLine();
                 return;
             }
 
