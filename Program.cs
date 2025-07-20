@@ -165,6 +165,7 @@ namespace SimpleHotelRoomManagement_OOP
             if (string.IsNullOrWhiteSpace(guestName))
             {
                 Console.WriteLine("Guest name cannot be empty.");
+                Console.ReadLine();
                 return;
             }
 
