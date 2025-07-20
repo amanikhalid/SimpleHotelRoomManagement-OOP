@@ -176,9 +176,15 @@ namespace SimpleHotelRoomManagement_OOP
                 return;
             }
 
-            room.Reservation = new Reservation(guestName, number, nights, DateTime.Now, room.DailyRate); // Create a new reservation
-            room.IsReserved = true;
-            Console.WriteLine("Room reserved successfully.");
+            Console.Write("Enter check-in date (yyyy-MM-dd): "); // Prompt for check-in date
+            if (!DateTime.TryParse(Console.ReadLine(), out DateTime checkIn))
+            {
+                Console.WriteLine("Invalid check-in date.");
+                return;
+            }
+
+           
+
         }
 
         private void ViewReservations() // Method to view all reservations
