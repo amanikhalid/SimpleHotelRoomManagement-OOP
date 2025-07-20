@@ -365,6 +365,7 @@ namespace SimpleHotelRoomManagement_OOP
             if (!int.TryParse(Console.ReadLine(), out int roomNumber)) // Validate room number input
             {
                 Console.WriteLine("Invalid room number.");
+                Console.ReadLine();
                 return;
             }
 
@@ -373,18 +374,21 @@ namespace SimpleHotelRoomManagement_OOP
             if (room == null) // Check if the room exists
             {
                 Console.WriteLine("Room does not exist.");
+                Console.ReadLine();
                 return;
             }
 
             if (!room.IsReserved) // Check if the room is reserved
             {
                 Console.WriteLine("Room is not reserved.");
+                Console.ReadLine();
                 return;
             }
 
             room.IsReserved = false;
             room.Reservation = null;
             Console.WriteLine("Reservation cancelled.");
+
 
             Console.WriteLine("\nPress any key to return to menu...");
             Console.ReadKey();
