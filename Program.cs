@@ -7,6 +7,7 @@ namespace SimpleHotelRoomManagement_OOP
     {
         static void Main(string[] args)
         {
+
             HotelSystem system = new HotelSystem(); // Create an instance of the HotelSystem class
             system.Run();
         }
@@ -46,6 +47,24 @@ namespace SimpleHotelRoomManagement_OOP
                     default: Console.WriteLine("Invalid option."); break;
                 }
             }
+        }
+
+        public void SaveData()
+        {
+            using (StreamWriter writer = new StreamWriter(FILE_PATH))
+            {
+                foreach (Room room in rooms)
+                {
+                    string line = $"{room.RoomNumber},{room.DailyRate},{room.IsReserved}";
+                    if (room.IsReserved && room.Reservation != null)
+                    {
+                        line += $",{room.Reservation.GuestName},{room.Reservation.Nights},{room.Reservation.CheckInDate}";
+                    }
+                    writer.WriteLine(line);
+                }
+            }
+
+            Console.WriteLine("Data saved successfully.");
         }
 
         private void AddRoom() // Method to add a new room
@@ -282,6 +301,8 @@ namespace SimpleHotelRoomManagement_OOP
         {
             return $"Reservation for {GuestName} | Room: {RoomNumber} | Nights: {Nights} | Check-in: {CheckInDate.ToShortDateString()} | Check-out: {CheckOutDate.ToShortDateString()} | Total Cost: {TotalCost()}";
         }
+
+
     }
 }
     
