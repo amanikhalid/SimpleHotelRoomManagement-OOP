@@ -192,6 +192,7 @@ namespace SimpleHotelRoomManagement_OOP
                 Console.WriteLine("Number of nights must be between 1 and 30.");
                 return;
             }
+            
 
             Console.Write("Enter check-out date (yyyy-MM-dd): "); // Prompt for check-out date
             if (!DateTime.TryParse(Console.ReadLine(), out DateTime checkOut) || checkOut <= checkIn)
@@ -370,9 +371,10 @@ namespace SimpleHotelRoomManagement_OOP
             RoomNumber = roomNumber;
             Nights = nights;
             CheckInDate = checkInDate;
-            CheckOutDate = checkInDate.AddDays(nights);
+            CheckOutDate = checkInDate.AddDays(nights); 
             DailyRate = dailyRate;
         }
+
 
         public double TotalCost() // Method to calculate total cost of the reservation
         {
