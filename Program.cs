@@ -77,11 +77,12 @@ namespace SimpleHotelRoomManagement_OOP
 
                 Room room = new Room(roomNumber, dailyRate);
 
-                if (isReserved && parts.Length == 6) // Check if the room is reserved and has reservation details
+                if (isReserved && parts.Length >= 7)
                 {
                     string guestName = parts[3];
                     int nights = int.Parse(parts[4]);
                     DateTime checkIn = DateTime.Parse(parts[5]);
+                    DateTime checkOut = DateTime.Parse(parts[6]);
 
                     room.IsReserved = true;
                     room.Reservation = new Reservation(guestName, roomNumber, nights, checkIn, dailyRate);
