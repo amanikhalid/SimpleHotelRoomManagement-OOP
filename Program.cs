@@ -269,15 +269,18 @@ namespace SimpleHotelRoomManagement_OOP
                 if (room.IsReserved && room.Reservation != null) // Check if the room is reserved
                 {
                     Console.WriteLine(room.Reservation.Display());
+
                 }
             }
             if (rooms.All(r => !r.IsReserved)) // If no rooms are reserved, notify the user
             {
                 Console.WriteLine("No reservations found.");
+                Console.ReadLine();
             }
             else
             {
                 Console.WriteLine("All reservations displayed above.");
+                Console.ReadLine();
             }
 
 
