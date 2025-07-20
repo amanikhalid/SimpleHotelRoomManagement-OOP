@@ -187,6 +187,11 @@ namespace SimpleHotelRoomManagement_OOP
                 Console.WriteLine("Check-in date cannot be in the past.");
                 return;
             }
+            if (nights < 1 || nights > 30) // Check if the number of nights is valid
+            {
+                Console.WriteLine("Number of nights must be between 1 and 30.");
+                return;
+            }
 
             Console.Write("Enter check-out date (yyyy-MM-dd): "); // Prompt for check-out date
             if (!DateTime.TryParse(Console.ReadLine(), out DateTime checkOut) || checkOut <= checkIn)
@@ -204,6 +209,7 @@ namespace SimpleHotelRoomManagement_OOP
                 Console.WriteLine("Reservation cannot exceed 30 days.");
                 return;
             }
+
 
             int night = (checkOut - checkIn).Days; 
 
