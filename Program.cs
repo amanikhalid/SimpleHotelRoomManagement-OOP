@@ -252,6 +252,9 @@ namespace SimpleHotelRoomManagement_OOP
                     Console.WriteLine(room.Reservation.Display());
                 }
             }
+
+            Console.WriteLine("\nPress any key to return to menu...");
+            Console.ReadKey();
         }
 
         private void SearchReservation()
