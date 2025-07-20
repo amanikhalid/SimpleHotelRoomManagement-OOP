@@ -252,6 +252,10 @@ namespace SimpleHotelRoomManagement_OOP
                     Console.WriteLine(room.Reservation.Display());
                 }
             }
+            if (rooms.All(r => !r.IsReserved)) // If no rooms are reserved, notify the user
+            {
+                Console.WriteLine("No reservations found.");
+            }
 
             Console.WriteLine("\nPress any key to return to menu...");
             Console.ReadKey();
