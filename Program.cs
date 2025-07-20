@@ -183,7 +183,16 @@ namespace SimpleHotelRoomManagement_OOP
                 return;
             }
 
-           
+            Console.Write("Enter check-out date (yyyy-MM-dd): "); // Prompt for check-out date
+            if (!DateTime.TryParse(Console.ReadLine(), out DateTime checkOut) || checkOut <= checkIn)
+            {
+                Console.WriteLine("Invalid check-out date.");
+                return;
+            }
+
+            
+
+
 
         }
 
