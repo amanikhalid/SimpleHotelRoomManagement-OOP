@@ -346,11 +346,14 @@ namespace SimpleHotelRoomManagement_OOP
             if (highest != null)
             {
                 Console.WriteLine("Highest paying guest:"); // Display the highest paying guest
+
                 Console.WriteLine(highest.Display());
+
             }
             else
             {
                 Console.WriteLine("No reservations found."); // If no reservations exist, notify the user
+                Console.ReadLine();
             }
 
             Console.WriteLine("\nPress any key to return to menu...");
