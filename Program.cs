@@ -190,8 +190,11 @@ namespace SimpleHotelRoomManagement_OOP
                 return;
             }
 
-            
+            int night = (checkOut - checkIn).Days; 
 
+            room.Reservation = new Reservation(guestName, number, nights, checkIn, room.DailyRate);
+            room.IsReserved = true;
+            Console.WriteLine("Room reserved successfully.");
 
 
         }
