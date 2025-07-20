@@ -112,12 +112,14 @@ namespace SimpleHotelRoomManagement_OOP
             if (!int.TryParse(Console.ReadLine(), out int number))
             {
                 Console.WriteLine("Invalid number.");
+                Console.ReadLine(); 
                 return;
             }
 
             if (rooms.Exists(r => r.RoomNumber == number)) // Check if room already exists
             {
                 Console.WriteLine("Room already exists.");
+                Console.ReadLine(); 
                 return;
             }
 
