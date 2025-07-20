@@ -194,24 +194,30 @@ namespace SimpleHotelRoomManagement_OOP
         }
         private void CancelReservation() // Method to cancel a reservation
         {
-            Console.Write("Enter room number to cancel reservation: "); // Prompt for room number
-            if (!int.TryParse(Console.ReadLine(), out int number)) 
+            Console.Write("Enter room number to cancel reservation: ");
+            if (!int.TryParse(Console.ReadLine(), out int roomNumber)) // Validate room number input
             {
-                Console.WriteLine("Invalid number.");
+                Console.WriteLine("Invalid room number.");
                 return;
             }
 
-            Room room = rooms.Find(r => r.RoomNumber == number); // Find the room by number
-            if (room != null && room.IsReserved) // Check if the room exists and is reserved
+            var room = rooms.FirstOrDefault(r => r.RoomNumber == roomNumber);
+
+            if (room == null) // Check if the room exists
             {
-                room.IsReserved = false;
-                room.Reservation = null;
-                Console.WriteLine("Reservation cancelled.");
+                Console.WriteLine("Room does not exist.");
+                return;
             }
-            else // If room does not exist or is not reserved, notify the user
+
+            if (!room.IsReserved) // Check if the room is reserved
             {
-                Console.WriteLine("No reservation found for that room.");
+                Console.WriteLine("Room is not reserved.");
+                return;
             }
+
+            room.IsReserved = false;
+            room.Reservation = null;
+            Console.WriteLine("Reservation cancelled.");
         }
 
     }
