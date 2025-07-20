@@ -316,8 +316,9 @@ namespace SimpleHotelRoomManagement_OOP
                     string line = $"{room.RoomNumber},{room.DailyRate},{room.IsReserved}";
                     if (room.IsReserved && room.Reservation != null)
                     {
-                        line += $",{room.Reservation.GuestName},{room.Reservation.Nights},{room.Reservation.CheckInDate}";
+                        line += $",{room.Reservation.GuestName},{room.Reservation.Nights},{room.Reservation.CheckInDate},{room.Reservation.CheckOutDate}";
                     }
+
                     writer.WriteLine(line);
                 }
             }
