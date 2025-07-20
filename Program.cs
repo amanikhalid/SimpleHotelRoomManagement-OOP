@@ -257,30 +257,39 @@ namespace SimpleHotelRoomManagement_OOP
             Console.ReadKey();
         }
 
-        private void SearchReservation()
+        
+       private void SearchReservation()
         {
-            Console.Write("Enter guest name to search: "); // Prompt for guest name
-            string guestName = Console.ReadLine();
+            Console.Write("Enter guest name to search: ");
+            string guestName = Console.ReadLine()?.Trim();
 
-            foreach (Room room in rooms) // Iterate through all rooms
+            if (string.IsNullOrWhiteSpace(guestName))
+            {
+                Console.WriteLine("Invalid guest name.");
+                return;
+            }
+
+            bool found = false;
+
+            foreach (Room room in rooms)
             {
                 if (room.IsReserved && room.Reservation != null &&
                     room.Reservation.GuestName.Equals(guestName, StringComparison.OrdinalIgnoreCase))
                 {
-                    Console.WriteLine(room.Reservation.Display()); // Display reservation details if found
-                    return;
+                    Console.WriteLine(room.Reservation.Display());
+                    found = true;
                 }
-
-                Console.WriteLine("\nPress any key to return to menu...");
-                Console.ReadKey();
             }
 
-            Console.WriteLine("Reservation not found.");
+            if (!found)
+            {
+                Console.WriteLine("Reservation not found.");
+            }
 
             Console.WriteLine("\nPress any key to return to menu...");
             Console.ReadKey();
-
         }
+
 
 
         private void HighestPayingGuest() // Method to find the highest paying guest
